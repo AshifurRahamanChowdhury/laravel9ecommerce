@@ -76,19 +76,9 @@
                         <a href="/"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
                     </div>
                     <div class="header-right">
-                        <div class="search-style-1">
-                            <form action="#">                                
-                                <input type="text" placeholder="Search for items...">
-                            </form>
-                        </div>
+                       @livewire('header-search-component')
                         <div class="header-action-right">
-                            <div class="header-action-2">
-                                <div class="header-action-icon-2">
-                                    <a href="shop-wishlist.php">
-                                        <img class="svgInject" alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg">
-                                        <span class="pro-count blue">4</span>
-                                    </a>
-                                </div>
+                            @livewire('wishlist-icon-component')
                                @livewire('cart-icon-component')
                             </div>
                         </div>
@@ -379,13 +369,13 @@
                     <p class="mobile-promotion">Happy <span class="text-brand">Mother's Day</span>. Big Sale Up to 40%</p>
                     <div class="header-action-right d-block d-lg-none">
                         <div class="header-action-2">
-                            <div class="header-action-icon-2">
+                            {{-- <div class="header-action-icon-2">
                                 <a href="shop-wishlist.php">
                                     <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg">
                                     <span class="pro-count white">4</span>
                                 </a>
-                            </div>
-                            <div class="header-action-icon-2">
+                            </div> --}}
+                            {{-- <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="cart.html">
                                     <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-cart.svg">
                                     <span class="pro-count white">2</span>
@@ -427,7 +417,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+                            @livewire('wishlist-icon-component')
+                            @livewire('cart-icon-component')
                             <div class="header-action-icon-2 d-block d-lg-none">
                                 <div class="burger-icon burger-icon-white">
                                     <span class="burger-icon-top"></span>
@@ -689,6 +681,7 @@
 <script src="{{asset('assets/js/main.js?v=3.3')}}"></script>
 <script src="{{asset('assets/js/shop.js?v=3.3')}}"></script>
 @livewireScripts
+@stack('scripts')
 </body>
 
 </html>
