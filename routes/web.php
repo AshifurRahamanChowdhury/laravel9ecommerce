@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Admin\AdminAddCategoryComponent;
+use App\Http\Livewire\Admin\AdminCategoriesComponent;
 use App\Http\Livewire\Admin\AdminDashboradComponent;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
@@ -10,6 +12,7 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\User\UserDashboradComponent;
+use App\Http\Livewire\WishlistComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +33,7 @@ Route::get ('/cart',CartComponent::class)->name('shop.cart');
 Route::get ('/checkout',CheckoutComponent::class)->name('shop.checkout');
 Route::get ('/product-category/{slug}',CategoryComponent::class)->name('product.category');
 Route::get ('/search',SearchComponent::class)->name('product.search');
+Route::get ('/wishlist',WishlistComponent::class)->name('shop.wishlist');
 Route::middleware('auth')->group(function () {
     Route::get('/user/dashborad',UserDashboradComponent::class)->name('user.dashborad');
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -39,7 +43,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth','authadmin')->group(function () {
     Route::get('/admin/dashborad',AdminDashboradComponent::class)->name('admin.dashborad');
-    
+    Route::get('/admin/categories',AdminCategoriesComponent::class)->name('admin.categories');
+    Route::get('/admin/category/add',AdminAddCategoryComponent::class)->name('admin.category.add');
 });
 
 require __DIR__.'/auth.php';

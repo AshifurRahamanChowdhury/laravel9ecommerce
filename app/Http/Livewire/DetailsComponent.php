@@ -15,7 +15,7 @@ class DetailsComponent extends Component
     public function store($product_id,$product_name,$product_price){
         Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');
         session()->flash('success_message','Item Added To Cart');
-        // $this->emitTo('cart-icon-component','refreshComponent');
+        $this->emitTo('cart-icon-component','refreshComponent');
         return redirect()->route('shop.cart');
     }
     public function render()
